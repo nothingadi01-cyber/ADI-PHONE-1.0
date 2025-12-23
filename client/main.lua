@@ -175,3 +175,25 @@ RegisterNUICallback("startContract", function(data, cb)
     end
     cb('ok')
 end persistence)
+
+-- AR SCANNER LOGIC
+RegisterNUICallback("startARScanner", function(data, cb)
+    local ped = PlayerPedId()
+    SendNUIMessage({ action = "adi_voice", msg = "NEURAL SCANNER INITIALIZED." })
+    
+    Citizen.CreateThread(function()
+        while isScannerOpen do
+            Citizen.Wait(100)
+            local target = GetEntityPlayerIsFreeAimingAt(PlayerId())
+            if DoesEntityExist(target) and IsEntityAPed(target) then
+                local tId = GetPlayerServerId(NetworkGetPlayerIndexFromPed(target))
+                SendNUIMessage({
+                    action = "ar_data",
+                    name = GetPlayerName(NetworkGetPlayerIndexFromPed(target)),
+                    id = tId
+                })
+            end
+        end
+    end)
+    cb('ok')
+end)
