@@ -8,3 +8,5 @@ CREATE TABLE IF NOT EXISTS `phone_settings` (
 );
 
 ALTER TABLE `phone_settings` ADD COLUMN `biometric_enabled` TINYINT(1) DEFAULT 0;
+
+ALTER TABLE `phone_settings` ADD COLUMN `passcode` VARCHAR(4) DEFAULT '0000';
