@@ -139,3 +139,10 @@ function processNFCPayment(amount, recipientId) {
         speak("Payment successful. Thank you, Adi.");
     });
 }
+
+function showMultitask() {
+    const apps = document.querySelectorAll('.app-container');
+    apps.forEach(app => {
+        app.classList.add('multitask-mode'); // Scales down to 50%
+    });
+}
