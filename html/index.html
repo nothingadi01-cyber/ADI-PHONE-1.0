@@ -151,3 +151,20 @@
     <div class="app-icon" onclick="openApp('settings')"><img src="apps/settings.png"><span>Settings</span></div>
 </div>
 
+<div id="arcade-app" class="page" style="display:none;">
+    <div class="arcade-header">🎮 Adi Arcade</div>
+    <div class="game-list">
+        <div class="game-card" onclick="startMiniGame('flappy')">
+            <img src="apps/flappy.png">
+            <span>Adi-Bird</span>
+        </div>
+        <div class="game-card" onclick="startMiniGame('dices')">
+            <img src="apps/dices.png">
+            <span>High Roller</span>
+        </div>
+    </div>
+    <div id="game-container" style="display:none;">
+        <canvas id="gameCanvas"></canvas>
+        <button onclick="closeGame()">EXIT GAME</button>
+    </div>
+</div>
