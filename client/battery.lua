@@ -30,3 +30,35 @@ AddEventHandler('adi_phone:usePowerBank', function()
     currentBattery = math.min(currentBattery + 50.0, 100.0)
     ClearPedTasks(PlayerPedId())
 end)
+
+
+local batteryLevel = 100.0
+local isCharging = false
+
+Citizen.CreateThread(function()
+    while true do
+        local sleep = 60000 -- Check every minute
+        
+        if not isCharging and batteryLevel > 0 then
+            -- Drain logic: Faster drain if GPS or Flashlight is on
+            local drainRate = 0.5
+            if IsFlashlightOn() then drainRate = 2.0 end
+            
+            batteryLevel = batteryLevel - drainRate
+            
+            if batteryLevel <= 5.0 then
+                TriggerEvent('adi_phone:notification', "BATTERY", "Battery low: 5%. Connect to power.")
+            elseif batteryLevel <= 0 then
+                batteryLevel = 0
+                TriggerEvent('adi_phone:client:powerOff')
+            end
+        end
+
+        SendNUIMessage({
+            action = "updateBattery",
+            level = math.ceil(batteryLevel),
+            isCharging = isCharging
+        })
+        Wait(sleep)
+    end
+end)
