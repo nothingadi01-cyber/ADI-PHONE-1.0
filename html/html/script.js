@@ -63,3 +63,29 @@ function attemptUnlock() {
         }
     });
 }
+
+let currentApp = null;
+
+function openApp(appId) {
+    // Dynamic Island Expansion Effect
+    const island = document.getElementById('dynamic-island');
+    island.classList.add('island-expand');
+    
+    setTimeout(() => {
+        document.getElementById(`${appId}-app`).style.display = 'block';
+        document.getElementById('ios-app-grid').style.opacity = '0';
+        island.classList.remove('island-expand');
+        currentApp = appId;
+    }, 300;
+}
+
+// Swipe Up Gesture (Home Indicator)
+document.querySelector('.home-indicator').addEventListener('click', () => {
+    if (currentApp) {
+        document.getElementById(`${currentApp}-app`).style.display = 'none';
+        document.getElementById('ios-app-grid').style.opacity = '1';
+        currentApp = null;
+    } else {
+        closePhone(); // Close the NUI
+    }
+});
