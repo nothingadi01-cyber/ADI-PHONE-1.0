@@ -1270,3 +1270,45 @@
     .action-circle i { color: #2ecc71; font-size: 20px; }
     .action-circle span { font-size: 10px; font-weight: bold; color: #555; }
 </style>
+<div id="shadow-net-app" class="page" style="display:none; background:#0a0a0a; color:#00ff41; font-family: 'Share Tech Mono', monospace;">
+    <div class="darknet-header" style="padding: 25px; border-bottom: 1px dashed #00ff4133;">
+        <h1 style="font-size: 20px; text-align: center;">SHADOW-NET // SECURE ACCESS</h1>
+        <p style="font-size: 10px; text-align: center; color:#666;">Encrypted Link Active: Node 4492</p>
+    </div>
+
+    <div class="darknet-listings" style="padding: 20px;">
+        <div class="listing-category" style="margin-bottom: 20px;">
+            <h2 style="font-size: 16px; color:#00ff41;">// WEAPONS</h2>
+            <div class="item-card" onclick="purchaseDarkItem('pistol', 500)">
+                <span class="item-name">SILENT PISTOL</span>
+                <span class="item-price">$500</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+
+        <div class="listing-category" style="margin-bottom: 20px;">
+            <h2 style="font-size: 16px; color:#00ff41;">// GOODS</h2>
+            <div class="item-card" onclick="purchaseDarkItem('weed', 50)">
+                <span class="item-name">HIGH-GRADE WEED (10G)</span>
+                <span class="item-price">$50</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="item-card" onclick="purchaseDarkItem('lockpick', 10)">
+                <span class="item-name">ADVANCED LOCKPICK</span>
+                <span class="item-price">$10</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .item-card {
+        background: #1a1a1a; border: 1px solid #00ff4155; padding: 15px;
+        margin-top: 10px; border-radius: 8px; display: flex; justify-content: space-between;
+        align-items: center; cursor: pointer; transition: 0.2s;
+    }
+    .item-card:hover { background: #2a2a2a; }
+    .item-name { color: white; font-size: 14px; }
+    .item-price { color: #00ff41; font-weight: bold; }
+</style>
