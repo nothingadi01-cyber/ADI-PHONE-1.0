@@ -271,3 +271,12 @@ RegisterNUICallback("toggleVision", function(data, cb)
     end
     cb('ok')
 end)
+
+RegisterNUICallback("requestValet", function(data, cb)
+    local vehiclePlate = data.plate
+    SendNUIMessage({ action = "adi_voice", msg = "VALET IS BRINGING YOUR VEHICLE, ADI." })
+    
+    -- Logic to spawn vehicle nearby and drive to player
+    TriggerServerEvent("adi_phone:valetFetch", vehiclePlate)
+    cb('ok')
+end)
