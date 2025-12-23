@@ -5,6 +5,23 @@
             <div class="icons">📶 🔋</div>
         </div>
 
+        <div id="crypto-app" class="phone-app" style="display:none;">
+    <div class="app-header">
+        <h1>ADI-COIN (ADC)</h1>
+        <p id="live-price">$50,000</p>
+    </div>
+    
+    <div class="market-chart">
+        <div id="price-trend" class="trend-up">▲ MARKET STABLE</div>
+    </div>
+
+    <div class="trade-controls">
+        <input type="number" id="crypto-amount" placeholder="Amount">
+        <button class="buy-btn" onclick="trade('buy')">BUY</button>
+        <button class="sell-btn" onclick="trade('sell')">SELL</button>
+    </div>
+        </div>
+        
         <div class="app-grid">
             <div class="app" onclick="openApp('messages')"><img src="apps/mail.png"><span>Messages</span></div>
             <div class="app" onclick="openApp('crypto')"><img src="apps/crypto.png"><span>Crypto</span></div>
