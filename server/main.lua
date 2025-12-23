@@ -56,3 +56,13 @@ AddEventHandler('adi_phone:placeBounty', function(targetPlayerId, reward)
     -- Add a red zone on the map for the target
     print("BOUNTY PLACED ON " .. targetPlayerId .. " FOR $" .. reward)
 end)
+-- Save player data to Database
+RegisterServerEvent('adi_phone:cloudSync')
+AddEventHandler('adi_phone:cloudSync', function(data)
+    local identifier = GetPlayerIdentifier(source, 0)
+    MySQL.Async.execute('INSERT INTO adi_phone_cloud (identifier, data) VALUES (@id, @data) ON DUPLICATE KEY UPDATE data = @data', {
+        ['@id'] = identifier,
+        ['@data'] = json.encode(data)
+    })
+    TriggerClientEvent('adi_phone:notification', source, "ADI-CLOUD", "Data Backup Successful")
+end)
