@@ -27,3 +27,5 @@ const SystemSettings = {
     }
 }
 Uses MumbleCreateChannel or your VOIP API to save a local audio clip.
+
+    SetFlashLightKeepOnWhileMoving(true) + SetFlashLightEnabled(playerPed, true)
