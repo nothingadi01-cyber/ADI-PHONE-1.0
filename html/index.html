@@ -227,3 +227,21 @@
     <div id="recent-transactions">
         </div>
 </div>
+
+<div id="police-dispatch" class="page" style="display:none; background:#1a1a2e;">
+    <div class="dispatch-header">👮 BLUE-WATCH DISPATCH</div>
+    
+    <div class="active-calls">
+        <div class="call-card">
+            <span class="status-live">LIVE</span>
+            <strong>Citizen #102 - Robbery</strong>
+            <button onclick="watchStream(102)">VIEW FEED</button>
+            <button onclick="setGPS(102)">RESPOND</button>
+        </div>
+    </div>
+
+    <div class="police-tools">
+        <button onclick="checkDatabase()">MDB (Database)</button>
+        <button onclick="trackBolo()">BOLO List</button>
+    </div>
+</div>
