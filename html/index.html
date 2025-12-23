@@ -845,3 +845,15 @@
 
     <button class="restore-btn" onclick="triggerRestore()">RESTORE DATA TO DEVICE</button>
 </div>
+<div id="screen-damage-overlay" style="display:none; pointer-events:none;">
+    <div class="glass-crack-texture"></div>
+    <div class="glitch-line"></div>
+</div>
+
+<style>
+.glitch-effect {
+    animation: screenShake 0.2s infinite;
+    filter: hue-rotate(90deg) contrast(150%);
+    opacity: 0.8;
+}
+</style>
