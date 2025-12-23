@@ -514,3 +514,23 @@
         <button class="beam-btn" onclick="startBeamTransfer()">BEAM CASH</button>
     </div>
 </div>
+<div id="bet-app" class="page" style="display:none; background:#111;">
+    <div class="bet-header">🎲 ADI-BET P2P</div>
+    
+    <div class="game-selector">
+        <button onclick="selectGame('coinflip')">🪙 Coin Flip</button>
+        <button onclick="selectGame('rps')">✂️ Rock Paper Scissors</button>
+    </div>
+
+    <div class="wager-input">
+        <input type="number" id="bet-amount" placeholder="Wager Amount $">
+    </div>
+
+    <div id="game-status">Waiting for Opponent...</div>
+
+    <div class="game-area" id="rps-controls" style="display:none;">
+        <button onclick="playMove('rock')">✊</button>
+        <button onclick="playMove('paper')">✋</button>
+        <button onclick="playMove('scissors')">✌️</button>
+    </div>
+</div>
