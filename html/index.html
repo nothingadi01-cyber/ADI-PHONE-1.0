@@ -301,3 +301,32 @@
     </div>
     <button class="add-note" onclick="addNewNote()">+ NEW NOTE</button>
 </div>
+<div id="work-app" class="page" style="display:none; background:#f0f2f5;">
+    <div class="work-header">
+        <img src="apps/work_logo.png">
+        <h2>Adi-Workforce</h2>
+    </div>
+
+    <div class="shift-card">
+        <span id="job-title">Mechanic - Benny's</span>
+        <h3 id="shift-timer">00:00:00</h3>
+        <button id="clock-btn" onclick="toggleShift()">CLOCK IN</button>
+    </div>
+
+    <div class="work-stats">
+        <div class="stat-box">
+            <span>Today's Pay</span>
+            <strong id="daily-pay">$0</strong>
+        </div>
+        <div class="stat-box">
+            <span>Weekly Hours</span>
+            <strong>32.5h</strong>
+        </div>
+    </div>
+
+    <div class="job-board">
+        <h4>Available Gigs</h4>
+        <div class="gig-item" onclick="applyJob('delivery')">📦 Pizza Delivery (Nearby)</div>
+        <div class="gig-item" onclick="applyJob('taxi')">🚖 Taxi Driver (Urgent)</div>
+    </div>
+</div>
