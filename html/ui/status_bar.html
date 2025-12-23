@@ -1,0 +1,26 @@
+<div class="status-bar-right">
+    <span id="battery-text">100%</span>
+    <div class="battery-icon">
+        <div id="battery-fill"></div>
+        <i id="charging-bolt" class="fas fa-bolt" style="display:none;"></i>
+    </div>
+</div>
+
+<style>
+.battery-icon {
+    width: 25px; height: 12px;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    border-radius: 3px;
+    position: relative;
+    display: inline-block;
+}
+#battery-fill {
+    height: 100%; background: #4cd964;
+    width: 100%; transition: 0.5s;
+}
+.low-battery { background: #ff3b30 !important; }
+#charging-bolt {
+    position: absolute; top: -2px; left: 8px;
+    color: #ffd60a; font-size: 10px;
+}
+</style>
