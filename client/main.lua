@@ -379,3 +379,22 @@ RegisterNUICallback("acceptContract", function(data, cb)
     end)
     cb('ok')
 end)
+
+local isOnDuty = false
+local startTime = 0
+
+function toggleShift()
+    isOnDuty = not isOnDuty
+    if isOnDuty then
+        startTime = GetGameTimer()
+        TriggerServerEvent('adi_phone:server:clockIn')
+        SendNUIMessage({ action = "adi_voice", msg = "SHIFT STARTED. HAVE A PRODUCTIVE DAY, ADI." })
+        -- Update HUD Icon
+        TriggerEvent('adi_hud:updateStatus', 'duty', true)
+    else
+        local totalTime = GetGameTimer() - startTime
+        TriggerServerEvent('adi_phone:server:clockOut', totalTime)
+        SendNUIMessage({ action = "adi_voice", msg = "SHIFT ENDED. TOTAL EARNINGS SYNCED." })
+        TriggerEvent('adi_hud:updateStatus', 'duty', false)
+    end
+end
