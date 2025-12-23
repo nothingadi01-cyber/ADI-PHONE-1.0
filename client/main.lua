@@ -154,3 +154,23 @@ RegisterNUICallback("carControl", function(data, cb)
     end
     cb('ok')
 end)
+
+local currentMission = nil
+
+RegisterNUICallback("startContract", function(data, cb)
+    local type = data.type
+    local ped = PlayerPedId()
+    local pCoords = GetEntityCoords(ped)
+
+    if type == "illegal_delivery" then
+        local dropOff = vector3(120.5, -1200.2, 29.0) -- Random location
+        currentMission = { pos = dropOff, type = "delivery" }
+        
+        SetNewWaypoint(dropOff.x, dropOff.y)
+        SendNUIMessage({ action = "adi_voice", msg = "PACKAGE MARKED. DON'T GET CAUGHT." })
+        
+        -- Spawn an NPC "Buyer" at the location
+        SpawnMissionNPC(dropOff)
+    end
+    cb('ok')
+end persistence)
