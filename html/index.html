@@ -1131,3 +1131,35 @@
         </div>
     </div>
 </div>
+<div id="radio-app" class="page" style="display:none; background:#111; color:#00ffcc; font-family: 'Share Tech Mono', monospace;">
+    <div class="radio-header" style="padding: 20px; border-bottom: 1px solid #00ffcc33;">
+        <h1>SIGNAL TUNER</h1>
+        <div id="signal-wave" class="wave-animation"></div>
+    </div>
+
+    <div class="tuner-display" style="text-align: center; padding: 40px 0;">
+        <h2 id="current-freq" style="font-size: 48px; margin: 0;">104.5</h2>
+        <p style="color: #666;">MHz</p>
+        <div id="station-name" style="color: #00ffcc; margin-top: 10px;">LS PUBLIC RADIO</div>
+    </div>
+
+    <div class="tuner-controls" style="padding: 20px;">
+        <input type="range" id="freq-slider" min="1" max="999" step="1" style="width: 100%; accent-color: #00ffcc;">
+        
+        <div class="secure-channels" style="margin-top: 30px;">
+            <p style="font-size: 10px; color: #ff3b30;">SECURE FREQUENCIES (ENCRYPTED)</p>
+            <button class="channel-btn locked" id="pd-freq" onclick="attemptDecrypt('police')">
+                <i class="fas fa-shield-alt"></i> LSPD DISPATCH
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+.channel-btn {
+    width: 100%; background: #222; border: 1px solid #444; color: #888;
+    padding: 12px; border-radius: 5px; margin-top: 10px; text-align: left;
+}
+.channel-btn.unlocked { border-color: #00ffcc; color: #00ffcc; background: #00ffcc11; }
+.wave-animation { height: 20px; background: url('https://i.imgur.com/your-wave-gif.gif'); opacity: 0.5; }
+</style>
