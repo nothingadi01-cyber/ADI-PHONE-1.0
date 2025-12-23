@@ -243,3 +243,16 @@ function startFaceTime(targetId)
     -- This renders to a texture used in the NUI <iframe>
     PushScaleformMovieFunction(scaleform, "SET_DATA_SLOT")
 end
+
+RegisterNUICallback("summonVehicle", function(data, cb)
+    local vehicle = GetVehiclePedIsIn(PlayerPedId(), true)
+    local playerCoords = GetEntityCoords(PlayerPedId())
+
+    if DoesEntityExist(vehicle) then
+        -- Neural link feedback
+        SendNUIMessage({ action = "adi_voice", msg = "NEURAL LINK ESTABLISHED. VEHICLE EN ROUTE." })
+        
+        TaskVehicleDriveToCoord(GetPedInVehicleSeat(vehicle, -1), vehicle, playerCoords.x, playerCoords.y, playerCoords.z, 20.0, 0, GetEntityModel(vehicle), 786603, 1.0, true)
+    end
+    cb('ok')
+end)
