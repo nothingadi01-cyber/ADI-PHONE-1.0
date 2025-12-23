@@ -24,3 +24,12 @@ CREATE TABLE IF NOT EXISTS `phone_alarms` (
     `alarm_time` VARCHAR(10),
     `label` VARCHAR(255)
 );
+
+CREATE TABLE IF NOT EXISTS `phone_transactions` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `sender` VARCHAR(50),
+    `receiver` VARCHAR(50),
+    `amount` INT,
+    `label` VARCHAR(255),
+    `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
