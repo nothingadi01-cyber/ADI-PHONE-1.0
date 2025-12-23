@@ -20,3 +20,30 @@ client_scripts {
 server_scripts {
     'server/main.lua'
 }
+
+fx_version 'cerulean'
+game 'gta5'
+author 'Adi'
+description 'The Complete Digital Ecosystem: HUD, Smartphone, and Government'
+
+-- Global Config for all Adi Scripts
+shared_scripts {
+    'config/shared.lua',
+    'config/translations.lua'
+}
+
+client_scripts {
+    'client/hud_core.lua',      -- ADRENALINE HUD
+    'client/phone_main.lua',    -- ADI-PHONE
+    'client/interaction.lua',   -- Airdrop & NFC
+    'client/apps/*.lua'         -- All Premium Apps
+}
+
+server_scripts {
+    'server/economy.lua',       -- Banking & Tax
+    'server/government.lua',    -- Mayor & Laws
+    'server/darkweb.lua'        -- Hitman & Bounties
+}
+
+ui_page 'html/index.html'
+files { 'html/**/*', 'assets/**/*' }
