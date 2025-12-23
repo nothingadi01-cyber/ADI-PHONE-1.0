@@ -374,3 +374,21 @@
         <button onclick="flashFirmware()">Flash Firmware (Reset Pin)</button>
     </div>
 </div>
+<div id="game-center" class="page" style="display:none; background:#121212;">
+    <div class="game-header">🎮 ADI-PLAY LOBBY</div>
+    
+    <div class="game-selection">
+        <div class="game-card" onclick="inviteToGame('8ball')">
+            <img src="apps/8ball.png">
+            <span>8-Ball Pool</span>
+        </div>
+        <div class="game-card" onclick="inviteToGame('chess')">
+            <img src="apps/chess.png">
+            <span>Grandmaster Chess</span>
+        </div>
+    </div>
+
+    <div id="active-match" style="display:none;">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+</div>
