@@ -66,3 +66,28 @@ AddEventHandler('adi_phone:cloudSync', function(data)
     })
     TriggerClientEvent('adi_phone:notification', source, "ADI-CLOUD", "Data Backup Successful")
 end)
+local cityTreasury = 4250900
+local currentTaxRate = 5 -- Default 5%
+
+-- Automatic Tax Collection
+RegisterServerEvent('adi_phone:server:processPaycheck')
+AddEventHandler('adi_phone:server:processPaycheck', function(salary)
+    local src = source
+    local taxAmount = math.floor(salary * (currentTaxRate / 100))
+    local finalSalary = salary - taxAmount
+    
+    cityTreasury = cityTreasury + taxAmount
+    
+    -- Give money to player (Framework dependent)
+    -- TriggerClientEvent('adi_phone:notification', src, "Gov Tax", "Deducted: $" .. taxAmount)
+    
+    -- Sync new treasury balance to Mayor's phone
+    TriggerClientEvent('adi_phone:client:updateTreasury', -1, cityTreasury)
+end)
+
+-- Mayor changing the tax
+RegisterServerEvent('adi_phone:server:setTaxRate')
+AddEventHandler('adi_phone:server:setTaxRate', function(newRate)
+    currentTaxRate = newRate
+    TriggerClientEvent('adi_phone:client:getAdiVoice', -1, "CITY TAX RATE UPDATED TO " .. newRate .. "%")
+end)
