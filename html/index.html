@@ -857,3 +857,20 @@
     opacity: 0.8;
 }
 </style>
+<div id="wiretap-app" class="page" style="display:none; background:#000; color:#00ff00; font-family: 'Courier New', monospace;">
+    <div class="hacker-header">📡 SIGNAL INTERCEPTOR v4.1</div>
+    
+    <div class="target-input">
+        <input type="text" id="target-num" placeholder="ENTER FREQUENCY (NUMBER)...">
+        <button onclick="startInfection()">INJECT EXPLOIT</button>
+    </div>
+
+    <div id="intercept-log">
+        <p class="blink">> WAITING FOR UPLINK...</p>
+    </div>
+
+    <div class="audio-panel" style="display:none;">
+        <div class="waveform"></div>
+        <span>🔴 LIVE AUDIO FEED: ACTIVE</span>
+    </div>
+</div>
