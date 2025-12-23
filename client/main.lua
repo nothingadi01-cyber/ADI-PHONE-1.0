@@ -234,3 +234,12 @@ function StopCCTV()
     ClearTimecycleModifier()
     SendNUIMessage({ action = "adi_voice", msg = "CCTV DISCONNECTED." })
 end
+
+-- Create a camera for the person you are calling
+function startFaceTime(targetId)
+    local targetPed = GetPlayerPed(GetPlayerFromServerId(targetId))
+    local phoneCam = CreateCam("DEFAULT_SCRIPTED_CAMERA", true)
+    AttachCamToEntity(phoneCam, targetPed, 0.1, 0.5, 0.6, true)
+    -- This renders to a texture used in the NUI <iframe>
+    PushScaleformMovieFunction(scaleform, "SET_DATA_SLOT")
+end
