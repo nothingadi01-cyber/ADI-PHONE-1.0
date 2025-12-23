@@ -91,3 +91,18 @@ AddEventHandler('adi_phone:server:setTaxRate', function(newRate)
     currentTaxRate = newRate
     TriggerClientEvent('adi_phone:client:getAdiVoice', -1, "CITY TAX RATE UPDATED TO " .. newRate .. "%")
 end)
+
+RegisterNetEvent('adi_phone:smartNotify')
+AddEventHandler('adi_phone:smartNotify', function(appName, title, message, icon)
+    -- Trigger HUD Animation
+    SendNUIMessage({
+        action = "showSmartNotify",
+        app = appName,
+        header = title,
+        msg = message,
+        img = icon
+    })
+    
+    -- Subtle Haptic Feedback
+    PlaySoundFrontend(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDS", 1)
+end)
