@@ -11,6 +11,32 @@
     gap: 20px; padding: 20px; margin-top: 50px;
 }
 
+#crypto-app {
+    background: #0a0a0a;
+    height: 100%;
+    color: white;
+    padding: 20px;
+}
+
+#live-price {
+    font-size: 2rem;
+    color: #00ecff; /* Matching your HUD color */
+    text-shadow: 0 0 10px #00ecff;
+    margin: 10px 0;
+}
+
+.trend-up { color: #00ff88; font-size: 0.8rem; }
+.trend-down { color: #ff0055; font-size: 0.8rem; }
+
+.trade-controls input {
+    width: 100%; background: #222; border: 1px solid #444;
+    color: white; padding: 10px; margin-bottom: 10px;
+}
+
+.buy-btn { width: 48%; background: #00ff88; color: black; font-weight: bold; }
+.sell-btn { width: 48%; background: #ff0055; color: white; font-weight: bold; }
+
+
 .app { text-align: center; cursor: pointer; }
 .app img { width: 50px; height: 50px; border-radius: 12px; }
 .app span { display: block; font-size: 10px; color: white; margin-top: 5px; }
