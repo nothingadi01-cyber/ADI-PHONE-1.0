@@ -197,3 +197,40 @@ RegisterNUICallback("startARScanner", function(data, cb)
     end)
     cb('ok')
 end)
+
+local securityCam = nil
+local isWatchingCCTV = false
+
+RegisterNUICallback("viewCCTV", function(data, cb)
+    local camCoords = data.coords -- The location of the house camera
+    local camRotation = data.rotation
+
+    if not isWatchingCCTV then
+        isWatchingCCTV = true
+        
+        -- Create the Security Camera
+        securityCam = CreateCam("DEFAULT_SCRIPTED_CAMERA", true)
+        SetCamCoord(securityCam, camCoords.x, camCoords.y, camCoords.z)
+        SetCamRot(securityCam, camRotation.x, camRotation.y, camRotation.z, 2)
+        SetCamFov(securityCam, 70.0)
+        
+        -- Apply a "Security Filter" (Black & White or Grainy)
+        SetTimecycleModifier("scanline_cam_chevron")
+        SetTimecycleModifierStrength(1.2)
+        
+        -- Render the camera to the NUI
+        RenderScriptCams(true, false, 0, true, true)
+        SendNUIMessage({ action = "adi_voice", msg = "CCTV LINK ESTABLISHED." })
+    else
+        StopCCTV()
+    end
+    cb('ok')
+end)
+
+function StopCCTV()
+    isWatchingCCTV = false
+    RenderScriptCams(false, false, 0, true, true)
+    DestroyCam(securityCam)
+    ClearTimecycleModifier()
+    SendNUIMessage({ action = "adi_voice", msg = "CCTV DISCONNECTED." })
+end
