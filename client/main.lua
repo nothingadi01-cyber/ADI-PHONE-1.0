@@ -65,3 +65,50 @@ RegisterNUICallback("adiCommand", function(data, cb)
     end
     cb('ok')
 end)
+local batteryPercent = 100.0
+local isCharging = false
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(60000) -- Check every 1 minute
+        local ped = PlayerPedId()
+        
+        if not isCharging then
+            local drainRate = 0.5 -- Base drain
+            
+            -- If phone is being used, drain faster
+            if isPhoneOpen then drainRate = 1.5 end
+            -- If camera is open, drain MUCH faster
+            if isCameraOpen then drainRate = 5.0 end
+            
+            batteryPercent = batteryPercent - drainRate
+        end
+
+        if batteryPercent <= 0 then
+            batteryPercent = 0
+            if isPhoneOpen then
+                TogglePhone() -- Force close phone
+                SendNUIMessage({action = "adi_voice", msg = "POWER CRITICAL. SHUTTING DOWN."})
+            end
+        end
+        
+        SendNUIMessage({ action = "updateBattery", percent = batteryPercent })
+    end
+end)
+
+-- CHARGING STATIONS (at Gas Stations or 24/7 Stores)
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1000)
+        local coords = GetEntityCoords(PlayerPedId())
+        local distance = #(coords - vector3(25.0, -1345.0, 29.0)) -- Example: Bench at Legion Sq
+
+        if distance < 2.0 then
+            isCharging = true
+            batteryPercent = math.min(100.0, batteryPercent + 5.0)
+            SendNUIMessage({ action = "adi_voice", msg = "CHARGING..." })
+        else
+            isCharging = false
+        end
+    end
+end)
