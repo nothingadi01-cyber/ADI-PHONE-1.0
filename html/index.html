@@ -786,3 +786,27 @@
         <button class="alert-btn" onclick="sendAmberAlert()">EMERGENCY ALERT</button>
     </div>
 </div>
+
+<div id="pet-training" class="page" style="display:none; background:#2c3e50; color:white;">
+    <div class="academy-header">🎓 K9 ACADEMY</div>
+    
+    <div class="skill-tree">
+        <div class="skill-node locked" id="skill-sniff" onclick="unlockSkill('sniff')">
+            <span>👃 Narcotics Sniffing</span>
+            <p>Cost: 500 XP</p>
+        </div>
+        <div class="skill-node locked" id="skill-attack" onclick="unlockSkill('attack')">
+            <span>🐕 Tactical Takedown</span>
+            <p>Cost: 1000 XP</p>
+        </div>
+        <div class="skill-node active" id="skill-guard">
+            <span>🏠 House Sentry</span>
+            <p>UNLOCKED</p>
+        </div>
+    </div>
+    
+    <div class="active-commands">
+        <button onclick="petAction('search')">SEARCH FOR DRUGS</button>
+        <button onclick="petAction('guard_area')">GUARD RADIUS</button>
+    </div>
+</div>
