@@ -699,3 +699,28 @@
 
     <button class="renew-btn" onclick="payPremium()">PAY MONTHLY PREMIUM ($500)</button>
 </div>
+<div id="crypto-app" class="page" style="display:none; background:#0b0e11; color:#fff;">
+    <div class="market-header">
+        <h2>ADI-TRADE PRO</h2>
+        <span class="wallet-balance">Balance: $24,500.00</span>
+    </div>
+
+    <div class="chart-container">
+        <div id="crypto-chart"></div> </div>
+
+    <div class="asset-list">
+        <div class="asset-row" onclick="openCoin('BTC')">
+            <span>BITCOIN (BTC)</span>
+            <span class="price-up">$96,420 (+4.2%)</span>
+        </div>
+        <div class="asset-row" onclick="openCoin('ADI')">
+            <span>ADI-COIN (ADI)</span>
+            <span class="price-down">$1.05 (-12.4%)</span>
+        </div>
+    </div>
+
+    <div class="trade-actions">
+        <button class="buy-btn">BUY</button>
+        <button class="sell-btn">SELL</button>
+    </div>
+</div>
