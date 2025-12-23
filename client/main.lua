@@ -5,6 +5,7 @@ RegisterCommand("phone", function()
     TogglePhone()
 end)
 
+
 function TogglePhone()
     isPhoneOpen = not isPhoneOpen
     SetNuiFocus(isPhoneOpen, isPhoneOpen)
