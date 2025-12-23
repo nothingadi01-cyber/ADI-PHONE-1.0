@@ -5,6 +5,35 @@
             <div class="icons">📶 🔋</div>
         </div>
 
+        <div id="adi-phone">
+    <div class="notch">
+        <div class="camera-lens"></div>
+        <span id="clock">12:00</span>
+    </div>
+
+    <div id="home-screen" class="page">
+        <div class="app" onclick="openApp('camera')"><img src="apps/camera.png"><span>Camera</span></div>
+        <div class="app" onclick="openApp('insta')"><img src="apps/insta.png"><span>Insta</span></div>
+        <div class="app" onclick="openApp('twitter')"><img src="apps/twitter.png"><span>Twitter</span></div>
+        <div class="app" onclick="openApp('browser')"><img src="apps/safari.png"><span>Browser</span></div>
+        <div class="app" onclick="openApp('messages')"><img src="apps/imessage.png"><span>Messages</span></div>
+    </div>
+
+    <div id="camera-app" class="page" style="display:none;">
+        <div class="camera-ui">
+            <div class="zoom-slider">1x · 2x · 5x</div>
+            <div class="shutter" onclick="takePhoto()"></div>
+            <div class="cam-switch" onclick="switchCamera()">🔄</div>
+        </div>
+    </div>
+
+    <div id="browser-app" class="page" style="display:none;">
+        <input type="text" id="browser-url" placeholder="Search or enter URL">
+        <iframe id="web-view" src=""></iframe>
+    </div>
+        </div>
+        
+
         <div id="crypto-app" class="phone-app" style="display:none;">
     <div class="app-header">
         <h1>ADI-COIN (ADC)</h1>
