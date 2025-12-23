@@ -112,3 +112,23 @@ Citizen.CreateThread(function()
         end
     end
 end)
+
+-- JOB CENTER: Request a new task
+RegisterNUICallback("requestMission", function(data, cb)
+    local missionType = data.type -- e.g., 'delivery' or 'assassin'
+    SendNUIMessage({ action = "adi_voice", msg = "MISSION DATA DOWNLOADED. CHECK GPS." })
+    
+    -- Create Blip for mission
+    local blip = AddBlipForCoord(120.0, -500.0, 30.0)
+    SetBlipSprite(blip, 1)
+    SetBlipRoute(blip, true)
+    cb('ok')
+end)
+
+-- SERVICES: Call Mechanic / EMS / Police
+RegisterNUICallback("callService", function(data, cb)
+    local service = data.name
+    TriggerServerEvent("adi_phone:requestService", service, GetEntityCoords(PlayerPedId()))
+    SendNUIMessage({ action = "adi_voice", msg = service .. " HAS BEEN NOTIFIED." })
+    cb('ok')
+end)
