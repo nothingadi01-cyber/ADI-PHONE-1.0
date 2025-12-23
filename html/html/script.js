@@ -89,3 +89,18 @@ document.querySelector('.home-indicator').addEventListener('click', () => {
         closePhone(); // Close the NUI
     }
 });
+
+function searchGoogle(query) {
+    const url = `https://www.google.com/search?q=${query}`;
+    document.getElementById('safari-frame').src = url;
+}
+-- Client side FaceTime logic
+RegisterNetEvent('adi_phone:faceTimeStream')
+AddEventHandler('adi_phone:faceTimeStream', function(targetId)
+    local targetPed = GetPlayerPed(GetPlayerFromServerId(targetId))
+    -- Create a sub-camera focusing on targetPed's face
+    local faceCam = CreateCam("DEFAULT_SCRIPTED_CAMERA", true)
+    AttachCamToEntity(faceCam, targetPed, 0.0, 0.5, 0.7, true)
+    -- Push to NUI via RUI (Render Target)
+end)
+
