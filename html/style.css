@@ -135,3 +135,22 @@
     padding: 20px; gap: 10px;
 }
 .show-control { top: 0 !important; }
+
+/* Premium User Glow */
+.premium-profile {
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    position: relative;
+}
+
+.verified-badge::after {
+    content: '✅';
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.gold-badge::after {
+    content: '👑';
+    font-size: 12px;
+    margin-left: 5px;
+}
