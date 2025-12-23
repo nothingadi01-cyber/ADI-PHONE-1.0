@@ -398,3 +398,17 @@ function toggleShift()
         TriggerEvent('adi_hud:updateStatus', 'duty', false)
     end
 end
+
+local isAirplaneMode = false
+
+RegisterNUICallback("toggleAirplane", function(data, cb)
+    isAirplaneMode = data.status
+    if isAirplaneMode then
+        SendNUIMessage({ action = "adi_voice", msg = "AIRPLANE MODE ACTIVE. SIGNAL LOST." })
+        -- Remove the player's blip from all tracking systems
+        TriggerServerEvent('adi_phone:server:removeTracker')
+    else
+        SendNUIMessage({ action = "adi_voice", msg = "SIGNAL RESTORED. SYNCING DATA." })
+    end
+    cb('ok')
+end)
