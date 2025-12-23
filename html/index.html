@@ -935,3 +935,28 @@
         <div class="setting-item" onclick="openSub('about')">ℹ️ General <small>Software Update</small></div>
     </div>
 </div>
+<div id="notif-settings" class="sub-page" style="display:none;">
+    <div class="settings-header">Notifications</div>
+    
+    <div class="notif-row">
+        <span>Show Previews</span>
+        <select id="preview-toggle">
+            <option value="always">Always</option>
+            <option value="unlocked">When Unlocked</option>
+            <option value="never">Never</option>
+        </select>
+    </div>
+
+    <div class="app-list">
+        <div class="app-notif-item">
+            <img src="icons/ghost.png">
+            <span>Shadow-Net</span>
+            <input type="checkbox" checked>
+        </div>
+        <div class="app-notif-item">
+            <img src="icons/bank.png">
+            <span>Maze Bank</span>
+            <input type="checkbox" checked>
+        </div>
+    </div>
+</div>
