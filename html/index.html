@@ -1042,3 +1042,21 @@
         </div>
     </div>
 </div>
+
+<div id="find-my-app" class="page" style="display:none; background:#1a1a1a; color:white;">
+    <div class="header">🛰️ Adi-Cloud: Locate Device</div>
+    
+    <div class="login-box" id="find-my-login">
+        <input type="text" id="find-my-citizenid" placeholder="Citizen ID">
+        <input type="password" id="find-my-pass" placeholder="Master Passcode">
+        <button onclick="attemptLocate()">LOCATE DEVICE</button>
+    </div>
+
+    <div class="map-view" id="find-my-map" style="display:none;">
+        <div class="status-indicator">Signal: <span id="signal-status">SEARCHING...</span></div>
+        <div class="action-buttons">
+            <button class="btn-ping" onclick="triggerPing()">🔔 Play Sound</button>
+            <button class="btn-wipe" onclick="triggerRemoteWipe()">💀 Remote Wipe</button>
+        </div>
+    </div>
+</div>
