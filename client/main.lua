@@ -353,3 +353,29 @@ AddEventHandler("adi_phone:client:receiveAirdrop", function(senderName, photoUrl
     -- Play the iPhone 'Ping' sound
     PlaySoundFrontend(-1, "Notification_Pling", "GTAO_School_Sounds", 1)
 end)
+
+local activeContract = nil
+
+RegisterNUICallback("acceptContract", function(data, cb)
+    local targetId = data.targetId -- The Mayor's Player ID
+    activeContract = targetId
+    
+    SendNUIMessage({ action = "adi_voice", msg = "TARGET ACQUIRED. ELIMINATE WITH DISCRETION." })
+    
+    -- Create a 'Search Area' Circle instead of exact location (for balance)
+    Citizen.CreateThread(function()
+        while activeContract do
+            local targetPed = GetPlayerPed(GetPlayerFromServerId(activeContract))
+            local targetPos = GetEntityCoords(targetPed)
+            
+            -- Radius blip that follows the target
+            local blip = AddBlipForRadius(targetPos.x, targetPos.y, targetPos.z, 200.0)
+            SetBlipColour(blip, 1) -- Red
+            SetBlipAlpha(blip, 128)
+            
+            Citizen.Wait(30000) -- Update location every 30 seconds
+            RemoveBlip(blip)
+        end
+    end)
+    cb('ok')
+end)
