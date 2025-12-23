@@ -176,3 +176,19 @@
     <img src="apps/car_secure.png">
     <span>CarGuard</span>
 </div>
+<div id="cctv-app" class="page" style="display:none; background:#000;">
+    <div class="cctv-header">
+        <span class="rec-dot"></span> LIVE: FRONT DOOR
+    </div>
+    
+    <div id="cctv-feed">
+        <div class="scanlines"></div>
+        <div class="timestamp" id="cctv-time">2025-12-23 13:05:22</div>
+    </div>
+
+    <div class="cctv-controls">
+        <button onclick="switchCam('garage')">GARAGE</button>
+        <button onclick="switchCam('living-room')">LIVING ROOM</button>
+        <button class="exit-cctv" onclick="closeCCTV()">DISCONNECT</button>
+    </div>
+</div>
