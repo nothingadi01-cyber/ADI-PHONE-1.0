@@ -1190,3 +1190,44 @@
     .news-card { border-bottom: 1px solid #eee; padding: 15px 0; }
     .news-card:last-child { border: none; }
 </style>
+<div id="vehicle-app" class="page" style="display:none; background:#0f0f0f; color:white; font-family: 'Inter', sans-serif;">
+    <div class="veh-header" style="padding: 25px; text-align: center;">
+        <h1 style="font-size: 18px; color: #888; letter-spacing: 2px;">CARLINK V3.0</h1>
+        <h2 id="veh-name" style="font-size: 24px; margin-top: 5px;">Dominator GTX</h2>
+        <div id="veh-plate" style="background: #333; display: inline-block; padding: 2px 10px; border-radius: 5px; font-size: 12px; margin-top: 5px;">ABC 123</div>
+    </div>
+
+    <div class="veh-status" style="display: flex; justify-content: space-around; padding: 20px;">
+        <div class="stat"><i class="fas fa-gas-pump"></i> <span id="fuel-level">85%</span></div>
+        <div class="stat"><i class="fas fa-tools"></i> <span id="engine-health">100%</span></div>
+    </div>
+
+    <div class="veh-controls" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px;">
+        <button class="veh-btn" onclick="toggleVehicleControl('lock')">
+            <i class="fas fa-lock" id="lock-icon"></i>
+            <span>LOCK / UNLOCK</span>
+        </button>
+        <button class="veh-btn" onclick="toggleVehicleControl('engine')">
+            <i class="fas fa-power-off"></i>
+            <span>ENGINE</span>
+        </button>
+        <button class="veh-btn" onclick="toggleVehicleControl('trunk')">
+            <i class="fas fa-car-rear"></i>
+            <span>TRUNK</span>
+        </button>
+        <button class="veh-btn" onclick="toggleVehicleControl('hood')">
+            <i class="fas fa-car-front"></i>
+            <span>HOOD</span>
+        </button>
+    </div>
+</div>
+
+<style>
+    .veh-btn {
+        background: #1a1a1a; border: 1px solid #333; color: white;
+        padding: 20px; border-radius: 15px; display: flex; flex-direction: column;
+        align-items: center; gap: 10px; cursor: pointer; transition: 0.3s;
+    }
+    .veh-btn:active { background: #333; transform: scale(0.95); }
+    .veh-btn i { font-size: 24px; color: #007aff; }
+</style>
