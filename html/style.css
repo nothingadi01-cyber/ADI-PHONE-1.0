@@ -167,3 +167,29 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+/* Glassmorphism Effect for LB-Style Apps */
+.phone-app-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+/* The Animated Notch */
+.phone-notch {
+    width: 120px;
+    height: 25px;
+    background: #000;
+    margin: 0 auto;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    transition: width 0.3s ease;
+}
+
+.phone-notch:hover {
+    width: 200px; /* Expands when active call/music is playing */
+}
+
