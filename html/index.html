@@ -1231,3 +1231,42 @@
     .veh-btn:active { background: #333; transform: scale(0.95); }
     .veh-btn i { font-size: 24px; color: #007aff; }
 </style>
+<div id="banking-app" class="page" style="display:none; background:#f8f9fa; font-family: 'Inter', sans-serif;">
+    <div class="bank-header" style="background: #1e1e1e; padding: 30px; border-radius: 0 0 30px 30px; color: white;">
+        <p style="opacity: 0.6; margin: 0;">Total Balance</p>
+        <h1 id="bank-balance" style="font-size: 36px; margin: 10px 0;">$0</h1>
+        <div style="font-size: 12px; opacity: 0.8;">Account: <span id="bank-acc-num">**** 4492</span></div>
+    </div>
+
+    <div class="bank-actions" style="display: flex; justify-content: space-around; margin-top: -25px; padding: 0 10px;">
+        <button class="action-circle" onclick="openTransferModal()">
+            <i class="fas fa-paper-plane"></i>
+            <span>Send</span>
+        </button>
+        <button class="action-circle" onclick="openBillsModal()">
+            <i class="fas fa-file-invoice-dollar"></i>
+            <span>Bills</span>
+        </button>
+        <button class="action-circle" onclick="refreshTransactions()">
+            <i class="fas fa-history"></i>
+            <span>History</span>
+        </button>
+    </div>
+
+    <div class="transaction-history" style="padding: 20px; margin-top: 20px;">
+        <h3 style="color: #333;">Recent Transactions</h3>
+        <div id="transaction-list" style="margin-top: 10px;">
+            </div>
+    </div>
+</div>
+
+<style>
+    .action-circle {
+        background: white; border: none; width: 70px; height: 70px; 
+        border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: 5px; cursor: pointer;
+    }
+    .action-circle i { color: #2ecc71; font-size: 20px; }
+    .action-circle span { font-size: 10px; font-weight: bold; color: #555; }
+</style>
