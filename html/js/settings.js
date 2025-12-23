@@ -48,3 +48,24 @@ $('#hud-slider').on('input', function() {
         alpha: value
     }));
 });
+function toggleFaceID() {
+    let isEnabled = $('#faceid-toggle').is(':checked');
+    
+    $.post(`https://${GetParentResourceName()}/saveSecuritySetting`, JSON.stringify({
+        faceid: isEnabled
+    }));
+
+    if(isEnabled) {
+        showNotification("SECURITY", "FaceID Enabled. Your data is now protected.");
+    }
+}
+
+// Logic to show/hide lock screen on open
+window.addEventListener('message', function(event) {
+    if (event.data.action === "openPhone") {
+        if (biometricEnabled) {
+            $('#faceid-screen').show();
+            $.post(`https://${GetParentResourceName()}/attemptFaceID`);
+        }
+    }
+});
