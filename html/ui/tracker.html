@@ -1,0 +1,27 @@
+<div id="signal-tracker" class="hidden">
+    <div class="radar-circle">
+        <div class="pulse"></div>
+    </div>
+    <div class="strength-bar">
+        <div id="strength-fill"></div>
+    </div>
+    <div class="distance-text">SIGNAL DISTANCE: <span id="dist-val">0</span>m</div>
+</div>
+
+<style>
+.radar-circle {
+    width: 100px; height: 100px;
+    border: 2px solid #00ff41;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+}
+.pulse {
+    width: 10px; height: 10px;
+    background: #00ff41;
+    border-radius: 50%;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px #00ff41;
+}
+</style>
