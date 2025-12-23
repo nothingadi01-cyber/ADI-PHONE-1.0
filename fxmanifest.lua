@@ -47,3 +47,32 @@ server_scripts {
 
 ui_page 'html/index.html'
 files { 'html/**/*', 'assets/**/*' }
+fx_version 'cerulean'
+game 'gta5'
+
+description 'ADI-PHONE Infinity: The Sovereign OS'
+author 'Adi_Dev'
+version '4.5.0'
+
+ui_page 'html/index.html'
+
+files {
+    'html/index.html',
+    'html/css/*.css',
+    'html/js/*.js',
+    'html/assets/**/*'
+}
+
+client_scripts {
+    'client/main.lua',
+    'client/apps/*.lua',
+    'client/signal_logic.lua',
+    'client/death_logic.lua',
+    'client/multitasking.lua'
+}
+
+server_scripts {
+    'server/main.lua',
+    'server/billing_system.lua',
+    'server/quantum_db.lua'
+}
