@@ -431,3 +431,4 @@ AddEventHandler('adi_phone:client:unlockSuccess', function()
     PlaySoundFrontend(-1, "Pin_Good", "DLC_HEIST_BIOLAB_PREP_HACKING_SOUNDS", 1)
 end)
 TriggerClientEvent('adi_phone:forceLock', targetID)
+if GetClockHours() >= 20 or GetClockHours() <= 6 then -- Apply Filter end
