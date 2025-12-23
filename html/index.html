@@ -502,3 +502,15 @@
 
     <div class="burner-warning">WARNING: DEVICE AUTO-WIPE IN PROGRESS</div>
 </div>
+<div id="beam-app" class="page" style="display:none; background: radial-gradient(circle, #1a1a1a 0%, #000 100%);">
+    <div class="beam-header">📡 ADI-BEAM</div>
+    <div class="radar-container">
+        <div class="radar-circle"></div>
+        <div class="user-avatar-center"></div>
+    </div>
+    <div class="beam-controls">
+        <input type="number" id="beam-amount" placeholder="Amount $">
+        <p id="target-status">Searching for nearby NFC...</p>
+        <button class="beam-btn" onclick="startBeamTransfer()">BEAM CASH</button>
+    </div>
+</div>
