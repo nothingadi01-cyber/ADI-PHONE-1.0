@@ -16,3 +16,33 @@ window.addEventListener('message', function(event) {
         }
     }
 });
+let installedApps = {
+    insta: true,
+    twitter: true,
+    dark: false
+};
+
+function downloadApp(appId) {
+    const btn = document.getElementById(`btn-${appId}`);
+    btn.innerHTML = '<div class="spinner"></div>'; // Loading animation
+    
+    setTimeout(() => {
+        btn.innerHTML = "OPEN";
+        btn.className = "open-btn";
+        installedApps[appId] = true;
+        refreshHomeScreen(); // Updates the main phone screen
+        speak("App installation complete, Adi.");
+    }, 3000);
+}
+
+function updateApp(appId) {
+    const btn = document.getElementById(`btn-${appId}`);
+    btn.innerHTML = "UPDATING...";
+    
+    setTimeout(() => {
+        btn.innerHTML = "LATEST";
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
+        speak("System update applied for " + appId);
+    }, 2000);
+}
