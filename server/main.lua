@@ -38,3 +38,10 @@ RegisterServerEvent('adi_phone:setSilent')
 AddEventHandler('adi_phone:setSilent', function(status)
     Player(source).state.isSilent = status
 end)
+-- Example for ESX/QB-Core
+RegisterUsableItem("powerbank", function(source)
+    local xPlayer = GetPlayerFromId(source)
+    xPlayer.removeInventoryItem("powerbank", 1)
+    TriggerClientEvent('adi_phone:usePowerbank', source)
+end)
+
