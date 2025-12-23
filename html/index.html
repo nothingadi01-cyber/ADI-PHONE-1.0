@@ -594,3 +594,18 @@
         <button onclick="setVolume(50)">VOLUME 50%</button>
     </div>
 </div>
+<div id="nitro-app" class="page" style="display:none; background:#050505;">
+    <div class="nitro-header">🏁 ADI-NITRO CIRCUIT</div>
+    
+    <div class="nitro-tabs">
+        <button onclick="showNitroTab('create')">CREATE</button>
+        <button onclick="showNitroTab('join')">JOIN LOBBY</button>
+    </div>
+
+    <div id="race-setup">
+        <input type="number" id="race-buyin" placeholder="Buy-in Amount $">
+        <button class="draw-btn" onclick="startDrawingTrack()">📍 DRAW TRACK ON MAP</button>
+        <p>Total Pot: <span id="pot-preview">$0</span></p>
+        <button class="launch-btn" onclick="publishRace()">PUBLISH RACE</button>
+    </div>
+</div>
