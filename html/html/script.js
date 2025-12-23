@@ -146,3 +146,12 @@ function showMultitask() {
         app.classList.add('multitask-mode'); // Scales down to 50%
     });
 }
+function orderFood(item, price) {
+    fetch(`https://${GetParentResourceName()}/placeFoodOrder`, {
+        method: 'POST',
+        body: JSON.stringify({ item: item, cost: price })
+    });
+    speak("Order placed. The driver is on the way, Adi.");
+    // Show a small 'Delivery' widget on the Dynamic Island
+    showIslandStatus("🍔 Delivery: 2 mins");
+}
