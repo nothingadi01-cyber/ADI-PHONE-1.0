@@ -24,3 +24,17 @@ AddEventHandler('adi_phone:buyCrypto', function(amount)
     -- Add your framework check here (e.g., if xPlayer.getMoney() >= cost)
     print("Player " .. src .. " bought " .. amount .. " Adi-Coin")
 end)
+-- Global Twitter Post
+RegisterServerEvent('adi_phone:postTwitter')
+AddEventHandler('adi_phone:postTwitter', function(content)
+    local src = source
+    local name = GetPlayerName(src)
+    -- Send to all clients to show a notification on their HUD
+    TriggerClientEvent('adi_phone:client:receiveTweet', -1, name, content)
+end)
+
+-- Silent/Mute Mode Toggle
+RegisterServerEvent('adi_phone:setSilent')
+AddEventHandler('adi_phone:setSilent', function(status)
+    Player(source).state.isSilent = status
+end)
