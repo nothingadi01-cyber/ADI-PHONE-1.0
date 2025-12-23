@@ -412,3 +412,21 @@ RegisterNUICallback("toggleAirplane", function(data, cb)
     end
     cb('ok')
 end)
+RegisterNUICallback("startFaceID", function(data, cb)
+    local playerPed = PlayerPedId()
+    
+    -- Play the 'Scanning' Animation on the Character
+    TaskStartScenarioInPlace(playerPed, "WORLD_HUMAN_STAND_MOBILE", 0, true)
+    
+    -- Wait 2 seconds for the UI animation to 'Scan'
+    Citizen.Wait(2000)
+    
+    TriggerServerEvent('adi_phone:server:verifyOwner')
+    cb('ok')
+end)
+
+RegisterNetEvent('adi_phone:client:unlockSuccess')
+AddEventHandler('adi_phone:client:unlockSuccess', function()
+    SendNUIMessage({ action = "unlockPhone" })
+    PlaySoundFrontend(-1, "Pin_Good", "DLC_HEIST_BIOLAB_PREP_HACKING_SOUNDS", 1)
+end)
