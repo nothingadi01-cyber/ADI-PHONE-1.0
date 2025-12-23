@@ -753,3 +753,21 @@
         </div>
     </div>
 </div>
+
+<div id="garage-app" class="page" style="display:none; background:#1a1a1a; color:#00ffcc;">
+    <div class="garage-header">🚗 ADI-DRIVE CONTROL</div>
+    
+    <div class="car-status-card">
+        <img src="assets/cars/nebula.png" id="selected-car-img">
+        <div class="stats">
+            <p>Model: <span id="car-model">Zentorno</span></p>
+            <p>Fuel: <span id="car-fuel">84%</span></p>
+        </div>
+    </div>
+
+    <div class="remote-grid">
+        <button onclick="remoteAction('lock')">🔒 LOCK</button>
+        <button onclick="remoteAction('engine')">⚡ START</button>
+        <button class="summon-btn" onclick="summonVehicle()">🚀 SUMMON TO ME</button>
+    </div>
+</div>
