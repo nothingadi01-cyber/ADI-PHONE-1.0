@@ -106,3 +106,9 @@ AddEventHandler('adi_phone:smartNotify', function(appName, title, message, icon)
     -- Subtle Haptic Feedback
     PlaySoundFrontend(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDS", 1)
 end)
+
+RegisterServerEvent('adi_phone:server:syncTvForAll')
+AddEventHandler('adi_phone:server:syncTvForAll', function(netId)
+    -- Tell all players near this NetID to replace their TV texture
+    TriggerClientEvent('adi_phone:client:applyTvTexture', -1, netId)
+end)
