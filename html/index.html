@@ -534,3 +534,24 @@
         <button onclick="playMove('scissors')">✌️</button>
     </div>
 </div>
+<div id="contract-app" class="page" style="display:none; background:#121212;">
+    <div class="contract-header">💼 WORK PORTAL</div>
+    <div class="contract-list" id="job-container">
+        <div class="job-card" onclick="openLobby('jewelry_heist')">
+            <div class="job-info">
+                <span class="job-title">Vangelico Job</span>
+                <span class="job-reward">$50,000+</span>
+            </div>
+            <div class="job-tags">
+                <span class="tag-red">HEIST</span>
+                <span class="tag-blue">4 PLAYERS</span>
+            </div>
+        </div>
+    </div>
+    
+    <div id="lobby-ui" style="display:none;">
+        <h3>Crew: <span id="player-count">1/4</span></h3>
+        <ul id="crew-list"></ul>
+        <button class="ready-btn" onclick="toggleReady()">READY UP</button>
+    </div>
+</div>
