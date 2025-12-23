@@ -245,3 +245,30 @@
         <button onclick="trackBolo()">BOLO List</button>
     </div>
 </div>
+<div id="gov-app" class="page" style="display:none; background:#002b5b;">
+    <div class="gov-header">
+        <img src="apps/city_seal.png" class="seal">
+        <h1>OFFICE OF THE MAYOR</h1>
+    </div>
+
+    <div class="treasury-card">
+        <span>CITY TREASURY</span>
+        <h2 id="treasury-balance">$4,250,900</h2>
+        <p>Projected Revenue: +$12k/hr</p>
+    </div>
+
+    <div class="gov-controls">
+        <div class="control-item">
+            <label>Income Tax (%)</label>
+            <input type="range" min="0" max="25" value="5" id="tax-slider" onchange="updateTax(this.value)">
+            <span id="tax-val">5%</span>
+        </div>
+        
+        <div class="control-item">
+            <label>Police Budget</label>
+            <button onclick="allocateFunds('police')">ADD $50k</button>
+        </div>
+    </div>
+
+    <button class="broadcast-btn" onclick="openEmergencyBroadcast()">🚨 CITY-WIDE ALERT</button>
+</div>
