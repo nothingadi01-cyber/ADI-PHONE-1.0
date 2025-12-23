@@ -46,3 +46,20 @@ function updateApp(appId) {
         speak("System update applied for " + appId);
     }, 2000);
 }
+function attemptUnlock() {
+    const lockScreen = document.getElementById('lock-screen');
+    const faceIcon = document.getElementById('face-id-scanner');
+    
+    faceIcon.classList.add('scanning'); // Pulsing animation
+    
+    // Call client to check if face is visible
+    fetch(`https://${GetParentResourceName()}/checkFace`, {}).then(resp => resp.json()).then(data => {
+        if (data.success) {
+            lockScreen.style.transform = "translateY(-100%)";
+            speak("Face ID recognized. Welcome, Adi.");
+        } else {
+            faceIcon.classList.add('error-shake');
+            speak("Access denied. Remove mask.");
+        }
+    });
+}
