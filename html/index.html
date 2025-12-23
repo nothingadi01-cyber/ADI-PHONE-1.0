@@ -627,3 +627,21 @@
         </div>
     </div>
 </div>
+<div id="pet-app" class="page" style="display:none; background:#f0f7f4;">
+    <div class="pet-header">🐾 ADI-PET CONNECT</div>
+    
+    <div class="pet-status-card">
+        <div id="pet-avatar" style="background-image: url('assets/pets/chopper.png');"></div>
+        <div class="stats">
+            <strong>Name: Chopper</strong>
+            <div class="stat-bar"><div id="hp" style="width:100%"></div></div>
+            <p>Status: <span id="pet-activity">Resting</span></p>
+        </div>
+    </div>
+
+    <div class="pet-actions">
+        <button onclick="petCommand('call')">📢 CALL TO ME</button>
+        <button onclick="petCommand('track')">📍 TRACK SIGNAL</button>
+        <button onclick="petCommand('listen')">🎧 REMOTE AUDIO</button>
+    </div>
+</div>
