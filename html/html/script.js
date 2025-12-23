@@ -154,4 +154,28 @@ function orderFood(item, price) {
     speak("Order placed. The driver is on the way, Adi.");
     // Show a small 'Delivery' widget on the Dynamic Island
     showIslandStatus("🍔 Delivery: 2 mins");
+}let installedApps = ['settings', 'phone', 'messages', 'appstore']; // Default apps
+
+function installApp(appName) {
+    if (!installedApps.includes(appName)) {
+        // Show a progress bar on the button
+        let btn = event.target;
+        btn.innerHTML = "Installing...";
+        btn.disabled = true;
+
+        setTimeout(() => {
+            installedApps.push(appName);
+            renderHomeScreen(); // Refresh the home screen icons
+            btn.innerHTML = "OPEN";
+            btn.disabled = false;
+            btn.onclick = () => openApp(appName);
+            
+            // Sync with Server/Database
+            fetch(`https://${GetParentResourceName()}/saveInstalledApps`, {
+                method: 'POST',
+                body: JSON.stringify({ apps: installedApps })
+            });
+        }, 3000);
+    }
 }
+
