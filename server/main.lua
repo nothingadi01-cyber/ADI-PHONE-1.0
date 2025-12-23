@@ -112,3 +112,18 @@ AddEventHandler('adi_phone:server:syncTvForAll', function(netId)
     -- Tell all players near this NetID to replace their TV texture
     TriggerClientEvent('adi_phone:client:applyTvTexture', -1, netId)
 end)
+
+-- Save new passcode from Settings
+RegisterServerEvent('adi_phone:server:updatePasscode')
+AddEventHandler('adi_phone:server:updatePasscode', function(newPin)
+    local src = source
+    local identifier = GetPlayerIdentifier(src, 0)
+    
+    MySQL.Async.execute('UPDATE phone_settings SET passcode = @pin WHERE citizenid = @id', {
+        ['@pin'] = newPin,
+        ['@id'] = identifier
+    })
+end)
+
+-- On Player Load:
+-- Fetch the passcode and send it to the NUI so the phone knows its 'Master Key'
