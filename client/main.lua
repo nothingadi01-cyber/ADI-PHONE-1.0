@@ -301,3 +301,20 @@ AddEventHandler('adi_phone:client:getPaid', function(amount, senderName)
     -- Play a "Cash Register" sound
     PlaySoundFrontend(-1, "LOCAL_PLYR_CASH_COUNTER_COMPLETE", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 1)
 end)
+RegisterNUICallback("getNearbyPlayers", function(data, cb)
+    local players = GetActivePlayers()
+    local nearby = {}
+    local myPos = GetEntityCoords(PlayerPedId())
+
+    for _, player in ipairs(players) do
+        local targetPed = GetPlayerPed(player)
+        local targetPos = GetEntityCoords(targetPed)
+        if #(myPos - targetPos) < 20.0 and player ~= PlayerId() then
+            table.insert(nearby, {
+                name = GetPlayerName(player),
+                id = GetPlayerServerId(player)
+            })
+        end
+    end
+    cb(nearby)
+end)
