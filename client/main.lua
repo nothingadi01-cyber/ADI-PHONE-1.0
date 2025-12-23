@@ -256,3 +256,18 @@ RegisterNUICallback("summonVehicle", function(data, cb)
     end
     cb('ok')
 end)
+
+local scannerMode = "normal"
+
+RegisterNUICallback("toggleVision", function(data, cb)
+    scannerMode = data.mode -- 'thermal' or 'night'
+    if scannerMode == "thermal" then
+        SetSeethrough(true)
+    elseif scannerMode == "night" then
+        SetNightvision(true)
+    else
+        SetSeethrough(false)
+        SetNightvision(false)
+    end
+    cb('ok')
+end)
