@@ -280,3 +280,24 @@ RegisterNUICallback("requestValet", function(data, cb)
     TriggerServerEvent("adi_phone:valetFetch", vehiclePlate)
     cb('ok')
 end)
+
+RegisterNUICallback("transferMoney", function(data, cb)
+    local targetNumber = data.number
+    local amount = tonumber(data.amount)
+    local note = data.note or "Sent from Adi-Phone"
+
+    -- Trigger server to check balance and send
+    TriggerServerEvent("adi_phone:server:transferMoney", targetNumber, amount, note)
+    cb('ok')
+end)
+
+-- Receive Notification
+RegisterNetEvent('adi_phone:client:getPaid')
+AddEventHandler('adi_phone:client:getPaid', function(amount, senderName)
+    SendNUIMessage({
+        action = "adi_voice", 
+        msg = "PAYMENT RECEIVED: $" .. amount .. " FROM " .. senderName
+    })
+    -- Play a "Cash Register" sound
+    PlaySoundFrontend(-1, "LOCAL_PLYR_CASH_COUNTER_COMPLETE", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 1)
+end)
