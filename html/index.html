@@ -555,3 +555,28 @@
         <button class="ready-btn" onclick="toggleReady()">READY UP</button>
     </div>
 </div>
+
+<div id="market-app" class="page" style="display:none; background:#f9f9f9;">
+    <div class="market-header">
+        <input type="text" id="market-search" placeholder="Search Adi-Mart...">
+        <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
+    </div>
+
+    <div class="category-scroll">
+        <div class="cat-chip active">All</div>
+        <div class="cat-chip">Vehicles</div>
+        <div class="cat-chip">Tools</div>
+        <div class="cat-chip">Luxury</div>
+    </div>
+
+    <div class="market-listings" id="market-items">
+        <div class="product-card">
+            <div class="prod-img" style="background-image: url('assets/cars/zentorno.jpg');"></div>
+            <div class="prod-details">
+                <strong>Pegassi Zentorno</strong>
+                <p class="price">$450,000</p>
+                <button onclick="purchaseItem('zentorno_1')">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+</div>
