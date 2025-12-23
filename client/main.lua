@@ -53,3 +53,15 @@ Citizen.CreateThread(function()
         end
     end
 end)
+RegisterNUICallback("adiCommand", function(data, cb)
+    local cmd = data.command:lower()
+    
+    if string.find(cmd, "waypoint") then
+        SetNewWaypoint(200.0, -1000.0) -- Example Coords
+        SendNUIMessage({action = "adi_voice", msg = "GPS UPDATED, ADI."})
+    elseif string.find(cmd, "mechanic") then
+        ExecuteCommand("service mechanic")
+        SendNUIMessage({action = "adi_voice", msg = "DISPATCHING MECHANIC."})
+    end
+    cb('ok')
+end)
