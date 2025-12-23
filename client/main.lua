@@ -318,3 +318,38 @@ RegisterNUICallback("getNearbyPlayers", function(data, cb)
     end
     cb(nearby)
 end)
+-- AIRDROP: Find nearby players
+RegisterNUICallback("getAirdropTargets", function(data, cb)
+    local players = GetActivePlayers()
+    local nearby = {}
+    local myPos = GetEntityCoords(PlayerPedId())
+
+    for _, player in ipairs(players) do
+        local targetPed = GetPlayerPed(player)
+        if #(myPos - GetEntityCoords(targetPed)) < 5.0 and player ~= PlayerId() then
+            table.insert(nearby, {
+                name = GetPlayerName(player),
+                id = GetPlayerServerId(player)
+            })
+        end
+    end
+    cb(nearby)
+end)
+
+-- Send the photo link to the server
+RegisterNUICallback("sendAirdrop", function(data, cb)
+    TriggerServerEvent("adi_phone:server:airdrop", data.targetId, data.photoUrl)
+    cb('ok')
+end)
+
+-- Recieve notification
+RegisterNetEvent("adi_phone:client:receiveAirdrop")
+AddEventHandler("adi_phone:client:receiveAirdrop", function(senderName, photoUrl)
+    SendNUIMessage({
+        action = "openAirdropRequest",
+        sender = senderName,
+        image = photoUrl
+    })
+    -- Play the iPhone 'Ping' sound
+    PlaySoundFrontend(-1, "Notification_Pling", "GTAO_School_Sounds", 1)
+end)
