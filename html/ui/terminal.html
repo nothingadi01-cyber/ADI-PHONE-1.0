@@ -1,0 +1,25 @@
+<div id="hacker-terminal" class="hidden">
+    <div class="term-header">ROOT@NEXUS:~# <span id="term-cursor">_</span></div>
+    <div id="term-output"></div>
+    <input type="text" id="term-input" autofocus>
+</div>
+
+<style>
+#hacker-terminal {
+    background: rgba(0, 20, 0, 0.95);
+    color: #00ff41;
+    font-family: 'OCR A Std', monospace;
+    font-size: 12px;
+    height: 100%;
+    padding: 20px;
+    text-shadow: 0 0 5px #00ff41;
+}
+.term-header { font-weight: bold; margin-bottom: 10px; }
+#term-input { 
+    background: transparent; 
+    border: none; 
+    color: #00ff41; 
+    width: 100%; 
+    outline: none;
+}
+</style>
