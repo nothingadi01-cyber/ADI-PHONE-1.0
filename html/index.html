@@ -1017,3 +1017,28 @@
 .dot { width: 12px; height: 12px; border: 1px solid white; border-radius: 50%; margin: 0 5px; display: inline-block; }
 .dot.filled { background: white; }
 </style>
+<div id="settings-passcode" class="settings-sub-page" style="display:none; background: #f2f2f7; height: 100%;">
+    <div class="settings-header">
+        <button onclick="backToSettings()"><i class="fas fa-chevron-left"></i></button>
+        <span>Passcode & Security</span>
+    </div>
+
+    <div class="settings-list">
+        <div class="settings-item" onclick="initiatePinChange()">
+            <div class="item-label">Change Passcode</div>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+
+        <div class="settings-info">
+            A passcode protects your data if your FaceID fails or if you are wearing a mask.
+        </div>
+
+        <div class="settings-item">
+            <div class="item-label">Erase Data (10 Attempts)</div>
+            <label class="switch">
+                <input type="checkbox" id="erase-data-toggle" onchange="toggleEraseData()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+</div>
