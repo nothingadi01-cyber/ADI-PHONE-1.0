@@ -45,3 +45,14 @@ RegisterUsableItem("powerbank", function(source)
     TriggerClientEvent('adi_phone:usePowerbank', source)
 end)
 
+RegisterServerEvent('adi_phone:placeBounty')
+AddEventHandler('adi_phone:placeBounty', function(targetPlayerId, reward)
+    local src = source
+    -- Deduct money from 'src'
+    
+    -- Notify all "Criminal" players
+    TriggerClientEvent('adi_phone:notifyBounty', -1, targetPlayerId, reward)
+    
+    -- Add a red zone on the map for the target
+    print("BOUNTY PLACED ON " .. targetPlayerId .. " FOR $" .. reward)
+end)
