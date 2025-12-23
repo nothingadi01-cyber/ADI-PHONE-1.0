@@ -359,3 +359,18 @@
     </div>
     <div class="notify-progress-bar"></div>
 </div>
+<div id="tech-repair-app" class="page" style="display:none; background:#e8eaf6;">
+    <div class="repair-header">🛠️ Adi-Tech Diagnostics</div>
+    
+    <div class="diagnostic-results">
+        <div class="stat-row"><span>Display Glass:</span> <strong style="color:red;">CRACKED</strong></div>
+        <div class="stat-row"><span>Internal Logic:</span> <strong style="color:green;">OK</strong></div>
+        <div class="stat-row"><span>Water Damage:</span> <strong style="color:orange;">Slight</strong></div>
+    </div>
+
+    <div class="repair-options">
+        <button onclick="repairComponent('screen')">Replace Screen ($200)</button>
+        <button onclick="repairComponent('water')">Dry Circuitry ($150)</button>
+        <button onclick="flashFirmware()">Flash Firmware (Reset Pin)</button>
+    </div>
+</div>
