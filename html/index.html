@@ -771,3 +771,18 @@
         <button class="summon-btn" onclick="summonVehicle()">🚀 SUMMON TO ME</button>
     </div>
 </div>
+<div id="news-app" class="page" style="display:none; background:#1e1e1e; border-top: 5px solid #ff0000;">
+    <div class="news-header">🔴 LIVE: LOS SANTOS NEWS</div>
+    
+    <div class="broadcast-preview">
+        <video id="camera-feed" autoplay muted></video>
+        <div class="ticker-input">
+            <input type="text" id="news-ticker" placeholder="Enter Breaking News Ticker...">
+        </div>
+    </div>
+
+    <div class="broadcast-controls">
+        <button class="live-btn" onclick="toggleLive()">GO LIVE</button>
+        <button class="alert-btn" onclick="sendAmberAlert()">EMERGENCY ALERT</button>
+    </div>
+</div>
