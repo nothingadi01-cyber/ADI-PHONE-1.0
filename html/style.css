@@ -78,3 +78,31 @@
 /* Low Battery Animation */
 .low-battery { background: #ff0055 !important; animation: blink 1s infinite; }
 @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+#iphone-frame {
+    width: 300px; height: 600px;
+    background: url('assets/wallpaper.jpg');
+    background-size: cover;
+    border-radius: 45px;
+    border: 8px solid #1a1a1a;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+#dynamic-island {
+    width: 120px; height: 35px;
+    background: black;
+    border-radius: 20px;
+    position: absolute; top: 10px; left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 999;
+}
+
+.island-expand { width: 90%; height: 80px; }
+
+#ios-app-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 15px; padding: 60px 20px;
+}
