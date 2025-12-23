@@ -123,3 +123,19 @@ function sendTelegram(msg) {
         body: JSON.stringify({ message: msg, channel: 'Global' })
     });
 }
+
+function processNFCPayment(amount, recipientId) {
+    // Play a "Beep" sound
+    const audio = new Audio('assets/nfc_beep.mp3');
+    audio.play();
+
+    // Trigger animation
+    document.getElementById('nfc-animation').style.display = 'block';
+
+    fetch(`https://${GetParentResourceName()}/processPayment`, {
+        method: 'POST',
+        body: JSON.stringify({ amount: amount, to: recipientId })
+    }).then(() => {
+        speak("Payment successful. Thank you, Adi.");
+    });
+}
