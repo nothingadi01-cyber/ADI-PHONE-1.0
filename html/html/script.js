@@ -104,3 +104,22 @@ AddEventHandler('adi_phone:faceTimeStream', function(targetId)
     -- Push to NUI via RUI (Render Target)
 end)
 
+// TINDER SWIPE SYSTEM
+function swipeTinder(direction) {
+    const card = document.querySelector('.tinder-card');
+    if (direction === 'right') {
+        card.style.transform = 'translateX(200px) rotate(20deg)';
+        speak("It's a match, Adi!");
+    } else {
+        card.style.transform = 'translateX(-200px) rotate(-20deg)';
+    }
+    setTimeout(() => { loadNextProfile(); }, 500);
+}
+
+// TELEGRAM (Encrypted Group Chats)
+function sendTelegram(msg) {
+    fetch(`https://${GetParentResourceName()}/sendTelegram`, {
+        method: 'POST',
+        body: JSON.stringify({ message: msg, channel: 'Global' })
+    });
+}
