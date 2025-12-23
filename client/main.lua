@@ -132,3 +132,25 @@ RegisterNUICallback("callService", function(data, cb)
     SendNUIMessage({ action = "adi_voice", msg = service .. " HAS BEEN NOTIFIED." })
     cb('ok')
 end)
+
+RegisterNUICallback("carControl", function(data, cb)
+    local ped = PlayerPedId()
+    local vehicle = GetVehiclePedIsIn(ped, true) -- Gets last vehicle
+    local action = data.action
+
+    if DoesEntityExist(vehicle) then
+        if action == "lock" then
+            SetVehicleDoorsLocked(vehicle, 2)
+            PlayVehicleDoorCloseSound(vehicle, 1)
+            SendNUIMessage({action = "adi_voice", msg = "VEHICLE SECURED."})
+        elseif action == "engine" then
+            local status = GetIsVehicleEngineRunning(vehicle)
+            SetVehicleEngineOn(vehicle, not status, true, true)
+            SendNUIMessage({action = "adi_voice", msg = "ENGINE TOGGLED."})
+        elseif action == "find" then
+            SetBlipRoute(GetEntityBlip(vehicle), true)
+            SendNUIMessage({action = "adi_voice", msg = "VEHICLE LOCATED."})
+        end
+    end
+    cb('ok')
+end)
