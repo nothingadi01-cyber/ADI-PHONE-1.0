@@ -1163,3 +1163,30 @@
 .channel-btn.unlocked { border-color: #00ffcc; color: #00ffcc; background: #00ffcc11; }
 .wave-animation { height: 20px; background: url('https://i.imgur.com/your-wave-gif.gif'); opacity: 0.5; }
 </style>
+<div id="news-app" class="page" style="display:none; background:#fff; font-family: 'Inter', sans-serif;">
+    <div id="weather-widget" style="padding: 30px; background: #5ac8fa; color: white; text-align: center; transition: 0.5s;">
+        <i id="weather-icon" class="fas fa-sun" style="font-size: 60px;"></i>
+        <h1 id="weather-temp" style="font-size: 48px; margin: 10px 0;">24°C</h1>
+        <p id="weather-desc" style="text-transform: uppercase; letter-spacing: 2px;">Sunny</p>
+    </div>
+
+    <div class="news-container" style="padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="color: #000;">Breaking News</h2>
+            <span class="live-tag" style="background: #ff3b30; color: white; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: bold;">LIVE</span>
+        </div>
+        
+        <div id="news-feed" style="margin-top: 15px;">
+            <div class="news-card">
+                <div style="height: 100px; background: #eee; border-radius: 10px; margin-bottom: 10px;"></div>
+                <h3 style="font-size: 16px; margin: 0;">LSPD Respond to Bank Heist in Paleto Bay</h3>
+                <p style="font-size: 12px; color: #888;">2 minutes ago</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .news-card { border-bottom: 1px solid #eee; padding: 15px 0; }
+    .news-card:last-child { border: none; }
+</style>
