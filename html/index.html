@@ -724,3 +724,20 @@
         <button class="sell-btn">SELL</button>
     </div>
 </div>
+<div id="vote-app" class="page" style="display:none; background:#f4f7f6;">
+    <div class="vote-header">🏛️ LOS SANTOS CIVIC PORTAL</div>
+    
+    <div class="active-ballot" id="current-vote">
+        <h3>Prop 24: Legalize Weed?</h3>
+        <p>Proposed by: Mayor's Office</p>
+        <div class="vote-options">
+            <button class="yes-btn" onclick="castVote('prop24', 'yes')">✅ YES</button>
+            <button class="no-btn" onclick="castVote('prop24', 'no')">❌ NO</button>
+        </div>
+    </div>
+
+    <div class="results-preview">
+        <span>Total Votes Cast: 142</span>
+        <div class="progress-bar"><div id="vote-progress" style="width: 65%;"></div></div>
+    </div>
+</div>
