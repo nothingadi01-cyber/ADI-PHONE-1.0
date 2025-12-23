@@ -55,4 +55,3 @@
    ```bash
    git clone [https://github.com/AdiDev/adi_phone_infinity.git](https://github.com/AdiDev/adi_phone_infinity.git)
    
-ensure adi_phone_infinity
